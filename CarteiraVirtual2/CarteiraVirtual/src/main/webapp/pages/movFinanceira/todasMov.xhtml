@@ -1,0 +1,65 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:composite="http://java.sun.com/jsf/composite"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+
+
+<ui:composition template="../templates/templateI.xhtml">
+	<ui:define name="conteudo">
+		<h:form>
+			<p:dataList value="#{movmentacaoController.ListMovimentacoes()}"
+				var="car" type="ordered">
+				<f:facet name="header">
+		            R$ = Fazer a soma aqui
+		        </f:facet>
+                 #{car.descricao}, #{car.tipo} #{car.valor}
+    </p:dataList>
+
+
+			<p:dialog header="Cadastro de Categoria" widgetVar="dlg1"
+				howEffect="explode" hideEffect="bounce" height="100">
+				<p:panelGrid columns="2" styleClass="ui-panelgrid-blank">
+					<p:outputLabel value="Movimentação" />
+					<p:inputText />
+					<p:outputLabel />
+					<p:commandButton value="Salvar" />
+				</p:panelGrid>
+			</p:dialog>
+
+			<p:dialog header="Cadastro de Movimentações" widgetVar="dlg2"
+				howEffect="explode" hideEffect="bounce" height="400">
+
+				<p:panelGrid columns="2" styleClass="ui-panelgrid-blank">
+
+					<p:outputLabel value="Tipo de Movimentação" />
+					<p:selectOneRadio id="console" unselectable="true">
+						<f:selectItem itemLabel="Entrada" itemValue="+" />
+						<f:selectItem itemLabel="Saida" itemValue="-" />
+					</p:selectOneRadio>
+
+					<p:outputLabel value="Movimentação" />
+					<p:selectOneMenu id="movimentacao">
+						<f:selectItem itemLabel="Selecione" itemValue="" />
+					</p:selectOneMenu>
+
+					<p:outputLabel value="Descrição" />
+					<p:inputText />
+
+					<p:outputLabel value="valor" />
+					<p:inputTextarea rows="5" cols="30" maxlength="10"
+						counterTemplate="{0} characters remaining." autoResize="false" />
+
+					<p:outputLabel />
+					<p:commandButton value="Salvar" />
+				</p:panelGrid>
+
+			</p:dialog>
+
+
+		</h:form>
+	</ui:define>
+</ui:composition>
+</html>

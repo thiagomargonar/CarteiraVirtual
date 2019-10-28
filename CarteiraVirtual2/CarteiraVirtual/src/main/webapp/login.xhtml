@@ -1,0 +1,49 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:composite="http://java.sun.com/jsf/composite"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+	<link rel="stylesheet"
+		href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+		integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+		crossorigin="anonymous"></link>
+
+</h:head>
+<h:body>
+	<h:form>
+		<p:growl id="growl" showDetail="false" sticky="true" />
+		
+		<h5 style="margin-top: 200px; margin-left: 25%">Projeto Carteira Virtual</h5>
+		<p:panelGrid columns="2" layout="grid" styleClass="ui-panelgrid-blank"
+			style="margin-top: 5%;	margin-left: 20%;"
+			columnClasses="ui-g-12 ui-md-6 ui-lg-4, ui-g-12 ui-md-6 ui-lg-8">
+
+			<h:panelGroup>
+				<img src="resources/images/Logo_TecnoSpeed.png" alt="logo"
+					width="80%" />
+			</h:panelGroup>
+
+			<p:panelGrid columns="2" layout="grid"
+				styleClass="ui-panelgrid-blank"
+				columnClasses="ui-g-1 ui-md-1 ui-lg-1, ui-g-12 ui-md-6 ui-lg-10">
+				<p:outputLabel value="Login" styleClass="users" />
+				<p:inputText placeholder="login" styleClass="users" required="true" requiredMessage="Informe qualquer usuário"/>
+				<p:outputLabel value="Senha" styleClass="users" />
+				<p:password styleClass="users" required="true" requiredMessage="Informe qualquer Senha"/>
+
+				<p:outputLabel />
+				
+				<p:commandButton action="pages/movFinanceira/movFin.xhtml?faces-redirect=true" value="Logar" update="@form"
+				class="btn btn-primary btn-lg"/>
+
+			</p:panelGrid>
+
+
+		</p:panelGrid>
+	</h:form>
+</h:body>
+</html>

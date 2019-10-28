@@ -1,0 +1,35 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+
+
+<h:form>
+	<p:menubar class="navbar-light bg-light">
+		<p:submenu label="Cadastros" icon="pi pi-file" class="navbar-light bg-light">
+			<p:submenu label="Opções" icon="pi pi-briefcase" >
+				<p:menuitem value="Categoria" url="../movFinanceira/CadTIpoMovimentacao.xhtml"  />
+				<p:menuitem value="Movimentações" url="../movFinanceira/CadMovimentacao.xhtml" />
+			</p:submenu>
+		</p:submenu>
+		
+		<p:submenu label="Consultas" icon="pi pi-file">
+			<p:submenu label="Movimentações" icon="pi pi-briefcase">
+				<p:menuitem value="10 movimentações"
+					url="../movFinanceira/todasMov.xhtml" />
+				<p:menuitem value="Todas Movimentações"
+					url="../movFinanceira/movFin.xhtml" />
+				<p:menuitem value="Graficos" url="../movFinanceira/graficos.xhtml" />
+			</p:submenu>
+		</p:submenu>
+		
+        <f:facet name="options">
+            <p:inputText style="margin:1px 10px 1px 1px;" placeholder="Search"/>
+            <p:button value="Quit" type="button" icon="pi pi-home" href="../../login.xhtml"/>
+        </f:facet>	
+	</p:menubar>
+</h:form>
+
+</html>

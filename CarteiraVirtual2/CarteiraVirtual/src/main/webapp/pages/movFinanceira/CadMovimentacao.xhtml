@@ -1,0 +1,49 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:composite="http://java.sun.com/jsf/composite"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+
+
+<ui:composition template="../templates/templateI.xhtml">
+	<ui:define name="conteudo">
+		<h:form>
+			<p:panelGrid columns="2" styleClass="ui-panelgrid-blank">
+
+				<p:outputLabel value="Tipo de Movimentação" />
+				<p:selectOneRadio id="console" unselectable="true"
+					value="#{movmentacaoController.mov.tipo}">
+					<f:selectItem itemLabel="Entrada" itemValue="+" />
+					<f:selectItem itemLabel="Saida" itemValue="-" />
+				</p:selectOneRadio>
+
+				<p:outputLabel value="Movimentação" />
+				<p:selectOneMenu id="lazy"
+					value="#{movmentacaoController.idCategoriaAUx}"
+					style="width:125px">
+					<f:selectItem itemLabel="Select One" itemValue="" />
+					<f:selectItems value="#{movmentacaoController.ListCategorias()}"
+						var="teste" itemLabel="#{teste.tipo}" itemValue="#{teste.id}" />
+				</p:selectOneMenu>
+
+				<p:outputLabel value="Descrição" />
+				<p:inputTextarea rows="5" cols="30" maxlength="10"
+					value="#{movmentacaoController.mov.descricao}" />
+
+				<p:outputLabel value="valor" />
+				<p:inputText maxlength="15" size="20" id="parcela" required="true"
+					value="#{movmentacaoController.mov.valor}"
+					requiredMessage="Preencha este campo com o valor da parcela">
+					<f:convertNumber pattern="#,##0.00"></f:convertNumber>
+				</p:inputText>
+
+				<p:outputLabel />
+				<p:commandButton value="Salvar" action="#{movmentacaoController.CadastroMovimentacao()}" update="@form"/>
+			</p:panelGrid>
+
+		</h:form>
+	</ui:define>
+</ui:composition>
+</html>
